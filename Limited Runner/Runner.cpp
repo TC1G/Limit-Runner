@@ -36,7 +36,7 @@ int main() {
     //VARIABLES FOR RUNNER AND GRAVITY
     float velocity = 0;
     bool isJumping = false;
-    const float jumpForce = -2000;
+    const float jumpForce = -3000;
     const float gravity = 20;
 
     //WINDOW
@@ -192,8 +192,14 @@ int main() {
 
         if (collisionDetected)
         {
-            CloseWindow();
+            DrawText ("You Lose!", WindowDimensions[0]/4,WindowDimensions[1]/2,50, RED);
+            UnloadTexture(Nebula);
+            UnloadTexture(Runner);
         }
+else if (RunnerData.pos.x >= finishline)
+{
+   DrawText ("You WIN!", WindowDimensions[0]/4,WindowDimensions[1]/2,50, GREEN);
+}
 
         else {
         for (int i = 0; i < sizeOfnebulae; i++)
